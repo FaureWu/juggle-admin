@@ -1,6 +1,6 @@
 [
   {
-    "key": "dsfsdfs",
+    "uuid": "dsfsdfs",
     "name": "产品1",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
@@ -12,8 +12,8 @@
     "status": 1
   },
   {
-    "key": "dsfsdfs1",
-    "name": "产品1",
+    "uuid": "dsfsdfs1",
+    "name": "产品2",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -24,8 +24,8 @@
     "status": 1
   },
   {
-    "key": "dsfsdfs2",
-    "name": "产品1",
+    "uuid": "dsfsdfs2",
+    "name": "产品3",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -36,8 +36,8 @@
     "status": 0
   },
   {
-    "key": "dsfsdfs3",
-    "name": "产品1",
+    "uuid": "dsfsdfs3",
+    "name": "产品4",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -48,8 +48,8 @@
     "status": 0
   },
   {
-    "key": "dsfsdfs4",
-    "name": "产品1",
+    "uuid": "dsfsdfs4",
+    "name": "产品5",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -60,8 +60,8 @@
     "status": 0
   },
   {
-    "key": "dsfsdfs5",
-    "name": "产品1",
+    "uuid": "dsfsdfs5",
+    "name": "产品6",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -72,8 +72,8 @@
     "status": 2
   },
   {
-    "key": "dsfsdfs6",
-    "name": "产品1",
+    "uuid": "dsfsdfs6",
+    "name": "产品7",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -84,8 +84,8 @@
     "status": 2
   },
   {
-    "key": "dsfsdfs7",
-    "name": "产品1",
+    "uuid": "dsfsdfs7",
+    "name": "产品8",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -96,8 +96,8 @@
     "status": 2
   },
   {
-    "key": "dsfsdfs8",
-    "name": "产品1",
+    "uuid": "dsfsdfs8",
+    "name": "产品9",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -108,8 +108,8 @@
     "status": 1
   },
   {
-    "key": "dsfsdfs9",
-    "name": "产品1",
+    "uuid": "dsfsdfs9",
+    "name": "产品10",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -120,8 +120,8 @@
     "status": 1
   },
   {
-    "key": "dsfsdfs10",
-    "name": "产品1",
+    "uuid": "dsfsdfs10",
+    "name": "产品11",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -132,8 +132,8 @@
     "status": 0
   },
   {
-    "key": "dsfsdfs11",
-    "name": "产品1",
+    "uuid": "dsfsdfs11",
+    "name": "产品12",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -144,8 +144,8 @@
     "status": 0
   },
   {
-    "key": "dsfsdfs12",
-    "name": "产品1",
+    "uuid": "dsfsdfs12",
+    "name": "产品13",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -156,8 +156,8 @@
     "status": 0
   },
   {
-    "key": "dsfsdfs13",
-    "name": "产品1",
+    "uuid": "dsfsdfs13",
+    "name": "产品14",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -168,8 +168,8 @@
     "status": 2
   },
   {
-    "key": "dsfsdfs14",
-    "name": "产品1",
+    "uuid": "dsfsdfs14",
+    "name": "产品15",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",
@@ -180,8 +180,8 @@
     "status": 2
   },
   {
-    "key": "dsfsdfs15",
-    "name": "产品1",
+    "uuid": "dsfsdfs15",
+    "name": "产品16",
     "code": "dfsdf",
     "attrs": "{\"fdsfs\":\"系列1\",\"ewrwerew\":\"分类1\",\"rteterte\":\"风格1\"}",
     "params": "{\"fsdfd\":\"颜色1\",\"gfdgdf\":\"原料1\",\"ghjghgf\":\"10-20RMB\"}",

@@ -1,24 +1,20 @@
 import {
-  Map,
+  List,
 } from 'immutable';
-import uuid from 'uuid/v4';
+import uuidV4 from 'uuid/v4';
 
 import Record from './record';
 
-export default datas => datas
-  .reduce((map, {
-    key: id,
-    name,
-    description,
-  }) => {
-    let key = id;
-    if (key === undefined) {
-      key = uuid();
-    }
+export const mapper = ({
+  uuid,
+  name,
+  description,
+}) => new Record({
+  key: uuid || uuidV4(),
+  name,
+  description,
+});
 
-    return map.set(key, new Record({
-      key,
-      name,
-      description,
-    }));
-  }, new Map());
+export default datas => datas
+  .reduce((list, data) => list
+    .push(mapper(data)), new List());

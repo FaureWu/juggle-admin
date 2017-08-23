@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 
 import {
+  get as getProducts,
+} from 'stores/products';
+import {
   loadingSelector,
   dataSelector,
   totalSelector,
@@ -13,8 +16,9 @@ const mapStateToProps = state => ({
   total: totalSelector(state),
 });
 
-const mapDispatchToProps = () => ({
-
+const mapDispatchToProps = dispatch => ({
+  onPageChange: (page, pageSize) =>
+    dispatch(getProducts((page - 1) * pageSize, pageSize)),
 });
 
 export default connect(

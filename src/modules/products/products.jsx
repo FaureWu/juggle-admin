@@ -7,6 +7,9 @@ import {
 } from 'antd';
 
 import {
+  blank,
+} from 'libs/utils';
+import {
   PAGINATION,
   PRODUCT_STATUS,
 } from 'defines';
@@ -38,12 +41,14 @@ class Products extends PureComponent {
     ),
     loading: PropTypes.bool,
     total: PropTypes.number,
+    onPageChange: PropTypes.func,
   };
 
   static defaultProps = {
     products: [],
     loading: false,
     total: 0,
+    onPageChange: blank,
   };
 
   columns = [
@@ -98,6 +103,7 @@ class Products extends PureComponent {
       products,
       loading,
       total,
+      onPageChange,
     } = this.props;
 
     return (
@@ -110,6 +116,7 @@ class Products extends PureComponent {
         pagination={{
           ...PAGINATION,
           total,
+          onChange: onPageChange,
         }}
         bordered
       />

@@ -16,7 +16,9 @@ import {
   ADD_VALIDATE,
   EDIT_VALIDATE,
 } from './type';
-import mapper from './mapper';
+import mappers, {
+  mapper,
+} from './mapper';
 
 const addInitState = {
   name: '',
@@ -119,13 +121,20 @@ export const reducer = combineReducers({
   }),
   data: createReducer(new Map(), {
     [GET.SUCCESS]: action =>
-      mapper(action.payload),
+      mappers(action.payload),
     [ADD.SUCCESS]: (action, state) =>
-      state.merge(mapper([action.payload])),
+      state.unshift(mapper(action.payload)),
     [EDIT.SUCCESS]: (action, state) =>
-      state.merge(mapper([action.payload])),
+      state.update(
+        state.findIndex(record =>
+          record.key === action.payload.key),
+        () => mapper(action.payload),
+      ),
     [DELETE.SUCCESS]: (action, state) =>
-      state.delete(action.payload),
+      state.delete(
+        state.findIndex(record =>
+          record.key === action.payload),
+      ),
   }),
   error: createReducer(false, {
     [GET.FAIL]: action => action.payload,

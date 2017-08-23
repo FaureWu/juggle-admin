@@ -9,6 +9,9 @@ import {
 import {
   get as getAttrs,
 } from 'stores/attrs';
+import {
+  PAGINATION,
+} from 'defines';
 
 import Product from './product';
 
@@ -20,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
   onMount: () => ([
     getAttrs(),
     getParams(),
-    getProducts(0, 10),
+    getProducts(0, PAGINATION.pageSize),
   ].map(dispatch)),
 });
 

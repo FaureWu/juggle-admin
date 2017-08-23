@@ -7,7 +7,7 @@ import createReducer from 'libs/createReducer';
 import {
   GET,
 } from './type';
-import mapper from './mapper';
+import mappers from './mapper';
 
 export const reducer = combineReducers({
   loading: createReducer(false, {
@@ -17,7 +17,7 @@ export const reducer = combineReducers({
   }),
   data: createReducer(new Map(), {
     [GET.SUCCESS]: action =>
-      mapper(action.payload.data),
+      mappers(action.payload.data),
   }),
   total: createReducer(0, {
     [GET.SUCCESS]: action => parseInt(action.payload.total, 10),
