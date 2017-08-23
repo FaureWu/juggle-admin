@@ -1,0 +1,26 @@
+@import 'src/styles/colors.scss';
+
+.more {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+
+  .icon {
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+      color: $strong-color;
+    }
+
+    &:active {
+      background: $strong-color;
+      box-shadow: 0 1px 6px $strong-color;
+      color: white;
+    }
+  }
+}

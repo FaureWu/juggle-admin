@@ -1,0 +1,17 @@
+@import 'src/styles/colors.scss';
+
+.operater {
+  .icon {
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 15px;
+
+    &:hover {
+      color: $strong-color;
+    }
+
+    &.danger {
+      color: $danger-color;
+    }
+  }
+}

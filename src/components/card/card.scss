@@ -1,0 +1,13 @@
+.card {
+  padding: 0;
+
+  :global {
+    .ant-card-extra {
+      top: 10px;
+    }
+
+    .ant-card-body {
+      padding: 24px 32px;
+    }
+  }
+}

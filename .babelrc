@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "es2015",
+      {
+        "modules": false,
+      }
+    ],
+    "react",
+    "stage-2"
+  ],
+  "plugins": ["lodash", ["import", { "libraryName": "antd", "style": true }]],
+  "compact" : true
+}

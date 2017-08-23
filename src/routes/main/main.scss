@@ -1,0 +1,45 @@
+@import 'src/styles/colors.scss';
+
+.container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+
+  .sider {
+    overflow: auto;
+    height: 100%;
+    border-right: 1px solid $border-color;
+    box-shadow: 0 0 10px $background-color;
+  }
+
+  .layout {
+    overflow: hidden;
+    height: 100%;
+
+    .header {
+      z-index: 1000;
+      padding: 0 16px;
+      box-shadow: 0 0 10px $background-color;
+      color: $font-color;
+    }
+
+    .scroll {
+      overflow: auto;
+      height: 100%;
+      background: $content-color;
+
+      .breadcrumb {
+        background: $background-color-2;
+      }
+
+      .content {
+        padding: 32px;
+      }
+
+      .footer {
+        padding: 16px;
+        background: $background-color-2;
+      }
+    }
+  }
+}
