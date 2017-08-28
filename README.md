@@ -1,11 +1,6 @@
 # juggle-admin
 A backend management system, create by react, redux, antd
 
-### how to install
-```BASH
-npm install --save juggle-components
-```
-
 ### run example
 ```BASH
 git clone https://github.com/FaureWu/juggle-admin.git
