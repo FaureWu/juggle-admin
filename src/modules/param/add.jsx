@@ -2,6 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   Form,
   Input,
@@ -13,6 +14,10 @@ import {
   blank,
   isValidate,
 } from 'libs/utils';
+import {
+  SUBMIT_HELP_KEY,
+  VALIDATE_STATUS,
+} from 'defines';
 import validator from './validator';
 
 import styles from './add.scss';
@@ -25,7 +30,7 @@ class Add extends PureComponent {
         PropTypes.number,
       ]),
       name: PropTypes.string,
-      description: PropTypes.string,
+      intro: PropTypes.string,
     }),
     validate: PropTypes.shape({
       name: PropTypes.shape({
@@ -40,7 +45,7 @@ class Add extends PureComponent {
         ]),
         hasFeedback: PropTypes.bool,
       }),
-      description: PropTypes.shape({
+      intro: PropTypes.shape({
         help: PropTypes.string,
         extra: PropTypes.arrayOf(
           PropTypes.string,
@@ -64,7 +69,7 @@ class Add extends PureComponent {
     data: {},
     validate: {
       name: {},
-      description: {},
+      intro: {},
     },
     loading: false,
     onChange: blank,
@@ -131,15 +136,15 @@ class Add extends PureComponent {
           />
         </Form.Item>
         <Form.Item
-          {...validate.description}
+          {...validate.intro}
           label="备注"
           labelCol={Add.LABEL_COL}
           wrapperCol={Add.WRAPPER_COL}
           colon
         >
           <Input.TextArea
-            name="description"
-            value={data.description}
+            name="intro"
+            value={data.intro}
             autosize={{
               minRows: 4,
               maxRows: 8,
@@ -147,6 +152,14 @@ class Add extends PureComponent {
             onChange={this.inputChange}
           />
         </Form.Item>
+        <Form.Item
+          {...validate[SUBMIT_HELP_KEY]}
+          className={classNames({
+            [styles.hide]:
+              validate[SUBMIT_HELP_KEY].validateStatus !==
+                VALIDATE_STATUS.ERROR,
+          })}
+        />
         <Form.Item
           wrapperCol={{
             ...Add.WRAPPER_COL,

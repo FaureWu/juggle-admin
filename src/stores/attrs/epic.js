@@ -12,6 +12,9 @@ import {
   close,
 } from 'stores/modal';
 import {
+  SUBMIT_HELP_KEY,
+} from 'defines';
+import {
   GET,
   ADD,
   EDIT,
@@ -37,18 +40,15 @@ const getEpic = (
 ) => action$
   .ofType(GET.START)
   .map(() => ({
+    url: `${endpoints.getAttrs}/0`,
     headers: {
       token: window.localStorage.getItem('token'),
     },
-    url: endpoints.getAttrs,
+    crossDomain: true,
+    method: 'GET',
+    responseType: 'json',
   }))
-  .mergeMap(request =>
-    ajax({
-      ...request,
-      method: 'GET',
-      crossDomain: true,
-      responseType: 'json',
-    })
+  .mergeMap(request => ajax(request)
     .pluck('response')
     .map(response =>
       response.code === 0 ?
@@ -64,28 +64,32 @@ const addEpic = (
   { endpoints, ajax },
 ) => action$
   .ofType(ADD.START)
-  .map(() => ({
+  .map(() => store.getState().attrs.add.data.toJS())
+  .map(data => ({
+    url: endpoints.addAttr,
     headers: {
       token: window.localStorage.getItem('token'),
     },
-    url: endpoints.addAttr,
-    body: store.getState().attrs.add.data.toJS(),
+    body: {
+      name: data.name,
+      intro: data.intro,
+    },
+    method: 'POST',
+    crossDomain: true,
+    responseType: 'json',
   }))
-  .mergeMap(request =>
-    ajax({
-      ...request,
-      method: 'POST',
-      crossDomain: true,
-      responseType: 'json',
-    })
+  .mergeMap(request => ajax(request)
     .pluck('response')
     .map((response) => {
       if (response.code === 0) {
         store.dispatch(close());
         return addSuccess(response.data);
       }
-
-      store.dispatch(addValidateChange({ name: [response.msg] }));
+      let errors = JSON.parse(response.msg);
+      if (typeof errors === 'string') {
+        errors = { [SUBMIT_HELP_KEY]: errors };
+      }
+      store.dispatch(addValidateChange(errors));
       return addFail(response.msg);
     })
     .catch(error => Observable.of(addFail(error))),
@@ -97,31 +101,33 @@ const editEpic = (
   { endpoints, ajax },
 ) => action$
   .ofType(EDIT.START)
-  .map(() => {
-    const data = store.getState().attrs.edit.data.toJS();
-    return {
-      headers: {
-        token: window.localStorage.getItem('token'),
-      },
-      url: `${endpoints.editAttr}/${data.key}`,
-      body: data,
-    };
-  })
-  .mergeMap(request =>
-    ajax({
-      ...request,
-      method: 'POST',
-      crossDomain: true,
-      responseType: 'json',
-    })
+  .map(() => store.getState().attrs.edit.data.toJS())
+  .map(data => ({
+    url: `${endpoints.editAttr}/${data.key}`,
+    headers: {
+      token: window.localStorage.getItem('token'),
+    },
+    body: {
+      name: data.name,
+      intro: data.intro,
+    },
+    method: 'POST',
+    crossDomain: true,
+    responseType: 'json',
+  }))
+  .mergeMap(request => ajax(request)
     .pluck('response')
     .map((response) => {
       if (response.code === 0) {
         store.dispatch(close());
-        return editSuccess(response.data);
+        const data = store.getState().attrs.edit.data.toJS();
+        return editSuccess(data);
       }
-
-      store.dispatch(editValidateChange({ name: [response.msg] }));
+      let errors = JSON.parse(response.msg);
+      if (typeof errors === 'string') {
+        errors = { [SUBMIT_HELP_KEY]: errors };
+      }
+      store.dispatch(editValidateChange(errors));
       return editFail(response.msg);
     })
     .catch(error => Observable.of(editFail(error))),
@@ -135,22 +141,19 @@ const deleteEpic = (
   .ofType(DELETE.START)
   .pluck('payload')
   .map(key => ({
+    url: `${endpoints.deleteAttr}/${key}`,
     headers: {
       token: window.localStorage.getItem('token'),
     },
-    url: `${endpoints.deleteAttr}/${key}`,
+    method: 'DELETE',
+    crossDomain: true,
+    responseType: 'json',
   }))
-  .mergeMap(request =>
-    ajax({
-      ...request,
-      method: 'DELETE',
-      crossDomain: true,
-      responseType: 'json',
-    })
+  .mergeMap(request => ajax(request)
     .pluck('response')
     .map(response =>
       response.code === 0 ?
-      deleteSuccess(response.data.key) :
+      deleteSuccess(store.getState().attrs.delete) :
       deleteFail(response.msg),
     )
     .catch(error => Observable.of(deleteFail(error))),

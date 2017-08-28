@@ -1,0 +1,12 @@
+[
+  {
+    "uuid": "dsfdsgdfs",
+    "name": "新闻",
+    "intro": "新闻类型"
+  },
+  {
+    "uuid": "gfdfgdf",
+    "name": "文章",
+    "intro": "文章类型"
+  }
+]

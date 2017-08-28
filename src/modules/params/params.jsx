@@ -28,7 +28,7 @@ class Params extends PureComponent {
           PropTypes.number,
         ]),
         name: PropTypes.string,
-        description: PropTypes.string,
+        intro: PropTypes.string,
       }),
     ),
     loading: PropTypes.bool,
@@ -58,9 +58,9 @@ class Params extends PureComponent {
       width: 150,
     },
     {
-      key: 'description',
+      key: 'intro',
       title: '描述',
-      dataIndex: 'description',
+      dataIndex: 'intro',
     },
     {
       key: 'operator',

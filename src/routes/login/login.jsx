@@ -2,6 +2,7 @@ import React, {
   PureComponent,
 } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   Form,
   Input,
@@ -14,6 +15,10 @@ import {
   blank,
   isValidate,
 } from 'libs/utils';
+import {
+  SUBMIT_HELP_KEY,
+  VALIDATE_STATUS,
+} from 'defines';
 import logo from 'assets/logo.svg';
 import validator from './validator';
 import styles from './login.scss';
@@ -166,6 +171,14 @@ class Login extends PureComponent {
                 onChange={this.inputChange}
               />
             </Form.Item>
+            <Form.Item
+              {...validate[SUBMIT_HELP_KEY]}
+              className={classNames({
+                [styles.hide]:
+                  validate[SUBMIT_HELP_KEY].validateStatus !==
+                    VALIDATE_STATUS.ERROR,
+              })}
+            />
             <Form.Item>
               <Checkbox
                 name="remember"

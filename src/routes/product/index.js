@@ -23,7 +23,11 @@ const mapDispatchToProps = dispatch => ({
   onMount: () => ([
     getAttrs(),
     getParams(),
-    getProducts(0, PAGINATION.pageSize),
+    getProducts(
+      (PAGINATION.defaultCurrent - 1) *
+      PAGINATION.defaultPageSize,
+      PAGINATION.defaultPageSize,
+    ),
   ].map(dispatch)),
 });
 

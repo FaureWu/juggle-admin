@@ -16,6 +16,8 @@ import {
 import Sider from 'modules/sider';
 import Header from 'modules/header';
 import Content from 'modules/content';
+import Footer from 'modules/footer';
+
 import styles from './main.scss';
 
 class Main extends PureComponent {
@@ -99,7 +101,9 @@ class Main extends PureComponent {
                 closable={false}
               >{modal.content}</Modal>
             </Layout.Content>
-            <Layout.Footer className={styles.footer}>footer</Layout.Footer>
+            <Layout.Footer className={styles.footer}>
+              <Footer />
+            </Layout.Footer>
           </Layout>
         </Layout>
       </Layout>

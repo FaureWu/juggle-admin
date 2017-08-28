@@ -1,0 +1,18 @@
+@import 'src/styles/colors.scss';
+
+.expand {
+  .picture {
+    display: inline-block;
+    height: 100px;
+  }
+
+  .shop {
+    padding: 10px 0;
+  }
+
+  .collapse {
+    .panel {
+      background: $panel-background;
+    }
+  }
+}

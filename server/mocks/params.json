@@ -2,16 +2,16 @@
   {
     "uuid": "fsdfd",
     "name": "颜色",
-    "description": "产品的颜色"
+    "intro": "产品的颜色"
   },
   {
     "uuid": "gfdgdf",
     "name": "原料",
-    "description": "产品的原料"
+    "intro": "产品的原料"
   },
   {
     "uuid": "ghjghgf",
     "name": "价格",
-    "description": "产品的价格"
+    "intro": "产品的价格"
   }
 ]

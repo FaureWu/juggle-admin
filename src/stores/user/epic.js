@@ -14,6 +14,9 @@ import {
   loginRoute,
 } from 'routes';
 import {
+  SUBMIT_HELP_KEY,
+} from 'defines';
+import {
   LOGIN,
   LOGOUT,
 } from './type';
@@ -52,7 +55,11 @@ const loginEpic = (
       }
 
       window.localStorage.removeItem('login');
-      store.dispatch(validateChange({ name: [response.msg] }));
+      let errors = JSON.parse(response.msg);
+      if (typeof errors === 'string') {
+        errors = { [SUBMIT_HELP_KEY]: errors };
+      }
+      store.dispatch(validateChange(errors));
       return loginFail();
     })
     .catch(() => Observable

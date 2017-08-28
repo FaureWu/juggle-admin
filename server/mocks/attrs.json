@@ -2,81 +2,81 @@
   {
     "uuid": "fdsfs",
     "name": "系列",
-    "description": "产品的系列"
+    "intro": "产品的系列"
   },
   {
     "uuid": "ewrwerew",
     "name": "分类",
-    "description": "产品的分类"
+    "intro": "产品的分类"
   },
   {
     "uuid": "rteterte",
     "name": "风格",
-    "description": "产品的风格"
+    "intro": "产品的风格"
   },
   {
     "uuid": "wrydfgdf",
     "name": "产地",
-    "description": "产品的产地"
+    "intro": "产品的产地"
   },
   {
     "uuid": "fdsfs1",
     "name": "系列",
-    "description": "产品的系列"
+    "intro": "产品的系列"
   },
   {
     "uuid": "ewrwerew1",
     "name": "分类",
-    "description": "产品的分类"
+    "intro": "产品的分类"
   },
   {
     "uuid": "rteterte1",
     "name": "风格",
-    "description": "产品的风格"
+    "intro": "产品的风格"
   },
   {
     "uuid": "wrydfgdf1",
     "name": "产地",
-    "description": "产品的产地"
+    "intro": "产品的产地"
   },
   {
     "uuid": "fdsfs2",
     "name": "系列",
-    "description": "产品的系列"
+    "intro": "产品的系列"
   },
   {
     "uuid": "ewrwerew2",
     "name": "分类",
-    "description": "产品的分类"
+    "intro": "产品的分类"
   },
   {
     "uuid": "rteterte2",
     "name": "风格",
-    "description": "产品的风格"
+    "intro": "产品的风格"
   },
   {
     "uuid": "wrydfgdf2",
     "name": "产地",
-    "description": "产品的产地"
+    "intro": "产品的产地"
   },
   {
     "uuid": "fdsfs12",
     "name": "系列",
-    "description": "产品的系列"
+    "intro": "产品的系列"
   },
   {
     "uuid": "ewrwerew12",
     "name": "分类",
-    "description": "产品的分类"
+    "intro": "产品的分类"
   },
   {
     "uuid": "rteterte12",
     "name": "风格",
-    "description": "产品的风格"
+    "intro": "产品的风格"
   },
   {
     "uuid": "wrydfgdf12",
     "name": "产地",
-    "description": "产品的产地"
+    "intro": "产品的产地"
   }
 ]

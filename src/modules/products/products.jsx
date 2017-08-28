@@ -14,6 +14,10 @@ import {
   PRODUCT_STATUS,
 } from 'defines';
 import Tool from 'components/tool';
+import Operater from 'components/operater';
+import Add from 'modules/product';
+import Edit from 'modules/product/edit';
+import Expand from './expand';
 
 import styles from './products.scss';
 
@@ -35,20 +39,61 @@ class Products extends PureComponent {
         detail: PropTypes.string,
         status: PropTypes.oneOf(
           Object.keys(PRODUCT_STATUS)
-            .map(key => PRODUCT_STATUS[key]),
+            .map(key => PRODUCT_STATUS[key].value),
         ),
       }),
     ),
+    attrs: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.number,
+        ]),
+        name: PropTypes.string,
+        description: PropTypes.string,
+      }),
+    ),
+    params: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.number,
+        ]),
+        name: PropTypes.string,
+        description: PropTypes.string,
+      }),
+    ),
+    deleteKey: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    pagination: PropTypes.shape({
+      size: PropTypes.number,
+      current: PropTypes.number,
+    }),
     loading: PropTypes.bool,
     total: PropTypes.number,
-    onPageChange: PropTypes.func,
+    onChange: PropTypes.func,
+    onAdd: PropTypes.func,
+    onEdit: PropTypes.func,
+    onDelete: PropTypes.func,
   };
 
   static defaultProps = {
     products: [],
+    attrs: [],
+    params: [],
     loading: false,
+    deleteKey: '',
+    pagination: {
+      pageSize: PAGINATION.defaultPageSize,
+      current: PAGINATION.defaultCurrent,
+    },
     total: 0,
-    onPageChange: blank,
+    onChange: blank,
+    onAdd: blank,
+    onEdit: blank,
+    onDelete: blank,
   };
 
   columns = [
@@ -75,20 +120,54 @@ class Products extends PureComponent {
       dataIndex: 'status',
       width: 150,
       render: (text, record) => {
-        switch (record.status) {
-          case PRODUCT_STATUS.ONLINE:
-            return '已上架';
-          case PRODUCT_STATUS.OFFLINE:
-            return '已下架';
-          case PRODUCT_STATUS.HOTLINE:
-            return '已推荐';
-          default:
-            return text;
+        const status = Object.keys(PRODUCT_STATUS)
+          .reduce((result, key) => ({
+            ...result,
+            [PRODUCT_STATUS[key].value]: PRODUCT_STATUS[key].label,
+          }), {});
+
+        if (status[record.status]) {
+          return status[record.status];
         }
+
+        return text;
+      },
+    },
+    {
+      key: 'operator',
+      title: '操作',
+      dataIndex: '',
+      width: 80,
+      render: (text, record) => {
+        const { deleteKey } = this.props;
+
+        if (record.key === deleteKey) {
+          return (<Operater operaters={[Operater.OPERATER.PEDDING]} />);
+        }
+
+        return (
+          <Operater
+            onClick={type => this.click(type, record)}
+            operaters={[
+              Operater.OPERATER.EDIT,
+              {
+                type: Operater.OPERATER.DELETE,
+                danger: true,
+                confirm: '确认删除产品么？',
+              },
+            ]}
+          />
+        );
       },
     },
   ];
 
+  add = () => this.props
+    .onAdd('添加产品', <Add />);
+  edit = data => this.props
+    .onEdit('修改产品', <Edit />, data);
+  delete = key => this.props
+    .onDelete(key);
   renderTitle = () => (
     <div className={styles.title}>
       <Tool
@@ -97,13 +176,43 @@ class Products extends PureComponent {
       />
     </div>
   );
+  expandedRowRender = record =>
+    (<Expand
+      picture={record.picture}
+      attrs={record.attrs}
+      params={record.params}
+      url={record.url}
+      attrNames={this.props.attrs
+        .reduce((result, attr) => ({
+          ...result,
+          [attr.key]: attr.name,
+        }), {})}
+      paramNames={this.props.params
+        .reduce((result, param) => ({
+          ...result,
+          [param.key]: param.name,
+        }), {})}
+    />);
+  click = (type, data) => {
+    switch (type) {
+      case Operater.OPERATER.EDIT:
+        this.edit(data);
+        break;
+      case Operater.OPERATER.DELETE:
+        this.delete(data.key);
+        break;
+      default:
+        break;
+    }
+  };
 
   render() {
     const {
       products,
       loading,
       total,
-      onPageChange,
+      onChange,
+      pagination,
     } = this.props;
 
     return (
@@ -115,9 +224,11 @@ class Products extends PureComponent {
         title={this.renderTitle}
         pagination={{
           ...PAGINATION,
+          ...pagination,
           total,
-          onChange: onPageChange,
         }}
+        expandedRowRender={this.expandedRowRender}
+        onChange={onChange}
         bordered
       />
     );

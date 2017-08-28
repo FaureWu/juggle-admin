@@ -25,3 +25,23 @@ export const totalSelector = createSelector(
   stateSelector,
   state => state.total,
 );
+
+export const addSelector = createSelector(
+  stateSelector,
+  state => state.add,
+);
+
+export const editSelector = createSelector(
+  stateSelector,
+  state => state.edit,
+);
+
+export const deleteSeletor = createSelector(
+  stateSelector,
+  state => state.delete,
+);
+
+export const paginationSelector = createSelector(
+  stateSelector,
+  state => state.pagination.toJS(),
+);

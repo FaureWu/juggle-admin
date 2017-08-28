@@ -5,5 +5,5 @@ import {
 export default new Record({
   key: undefined,
   name: undefined,
-  description: undefined,
+  intro: undefined,
 });

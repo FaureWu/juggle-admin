@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import {
   Map,
+  List,
 } from 'immutable';
 
 import createReducer from 'libs/createReducer';
 import {
   VALIDATE_STATUS,
   VALIDATE_DESCRIPTION,
+  SUBMIT_HELP_KEY,
 } from 'defines';
 import {
   GET,
@@ -22,12 +24,14 @@ import mappers, {
 
 const addInitState = {
   name: '',
-  description: '',
+  intro: '',
 };
 
 const validateState = {
   name: VALIDATE_DESCRIPTION.set('required', true),
-  description: VALIDATE_DESCRIPTION.set('required', false),
+  intro: VALIDATE_DESCRIPTION.set('required', false),
+  [SUBMIT_HELP_KEY]: VALIDATE_DESCRIPTION.set('required', false)
+    .set('hasFeedback', false),
 };
 
 const addReducer = combineReducers({
@@ -119,7 +123,7 @@ export const reducer = combineReducers({
     [GET.SUCCESS]: () => false,
     [GET.FAIL]: () => false,
   }),
-  data: createReducer(new Map(), {
+  data: createReducer(new List(), {
     [GET.SUCCESS]: action =>
       mappers(action.payload),
     [ADD.SUCCESS]: (action, state) =>

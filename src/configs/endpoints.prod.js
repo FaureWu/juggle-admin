@@ -1,3 +1,15 @@
 export default {
   login: 'http://mini.lixiang80.com/login',
+  getAttrs: 'http://mini.lixiang80.com/v1/productAttrs',
+  addAttr: 'http://mini.lixiang80.com/v1/productAttrs',
+  editAttr: 'http://mini.lixiang80.com/v1/productAttrs',
+  deleteAttr: 'http://mini.lixiang80.com/v1/productAttrs',
+  getParams: 'http://mini.lixiang80.com/v1/productParams',
+  addParam: 'http://mini.lixiang80.com/v1/productParams',
+  editParam: 'http://mini.lixiang80.com/v1/productParams',
+  deleteParam: 'http://mini.lixiang80.com/v1/productParams',
+  getProducts: 'http://mini.lixiang80.com/v1/products',
+  addProduct: 'http://mini.lixiang80.com/v1/products',
+  editProduct: 'http://mini.lixiang80.com/v1/products',
+  deleteProduct: 'http://mini.lixiang80.com/v1/products',
 };

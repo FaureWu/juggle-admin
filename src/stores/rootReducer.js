@@ -18,6 +18,15 @@ import {
 import {
   reducer as params,
 } from 'stores/params';
+import {
+  reducer as articles,
+} from 'stores/articles';
+import {
+  reducer as cates,
+} from 'stores/cates';
+import {
+  reducer as tags,
+} from 'stores/tags';
 
 export default combineReducers({
   router,
@@ -26,4 +35,7 @@ export default combineReducers({
   products,
   attrs,
   params,
+  articles,
+  cates,
+  tags,
 });

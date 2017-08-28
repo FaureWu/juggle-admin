@@ -7,7 +7,12 @@ import uuidV4 from 'uuid/v4';
 import Record from './record';
 
 const parse = (data) => {
-  const json = JSON.parse(data);
+  let json;
+  try {
+    json = JSON.parse(data);
+  } catch (error) {
+    json = {};
+  }
 
   return Object.keys(json)
     .reduce((map, key) =>
@@ -18,9 +23,10 @@ const parse = (data) => {
 export const mapper = data =>
   new Record({
     ...data,
-    key: data.uuid || uuidV4(),
+    key: data.uuid || data.key || uuidV4(),
     attrs: parse(data.attrs),
     params: parse(data.params),
+    status: `${data.status}`,
   });
 
 export default datas => datas

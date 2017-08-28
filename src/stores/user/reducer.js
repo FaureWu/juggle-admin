@@ -7,6 +7,7 @@ import createReducer from 'libs/createReducer';
 import {
   VALIDATE_STATUS,
   VALIDATE_DESCRIPTION,
+  SUBMIT_HELP_KEY,
 } from 'defines';
 import {
   INFO,
@@ -23,6 +24,8 @@ const userInitState = {
 const userValidateState = {
   name: VALIDATE_DESCRIPTION.set('required', true),
   password: VALIDATE_DESCRIPTION.set('required', true),
+  [SUBMIT_HELP_KEY]: VALIDATE_DESCRIPTION.set('required', false)
+    .set('hasFeedback', false),
 };
 
 export const reducer = combineReducers({
@@ -50,8 +53,7 @@ export const reducer = combineReducers({
         const error = errors[key];
 
         if (error) {
-          return validate.set('help', error[0])
-            .set('extra', error[1])
+          return validate.set('help', error)
             .set('validateStatus', VALIDATE_STATUS.ERROR);
         }
 

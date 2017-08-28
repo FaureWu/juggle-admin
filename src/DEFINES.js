@@ -30,8 +30,8 @@ export const VALIDATE_DESCRIPTION = new Map({
 });
 
 export const PAGINATION = {
-  defaultCurrent: 0,
-  pageSize: 10,
+  defaultCurrent: 1,
+  defaultPageSize: 10,
   showSizeChanger: true,
   showQuickJumper: true,
   pageSizeOptions: ['10', '20', '30', '40', '50'],
@@ -39,7 +39,33 @@ export const PAGINATION = {
 };
 
 export const PRODUCT_STATUS = {
-  ONLINE: 1,
-  OFFLINE: 0,
-  HOTLINE: 2,
+  ONLINE: {
+    value: '1',
+    label: '已上架',
+  },
+  OFFLINE: {
+    value: '0',
+    label: '已下架',
+  },
+  HOTLINE: {
+    value: '2',
+    label: '已推荐',
+  },
 };
+
+export const ARTICLE_STATUS = {
+  SHOW: {
+    value: '1',
+    label: '显示',
+  },
+  UNSHOW: {
+    value: '0',
+    label: '不显示',
+  },
+  TOP: {
+    value: '2',
+    label: '置顶',
+  },
+};
+
+export const SUBMIT_HELP_KEY = '__submit__';

@@ -1,0 +1,17 @@
+@import 'src/styles/colors.scss';
+
+.content {
+  display: inline-block;
+
+  .name {
+    padding: 5px 10px;
+    background: $background-color-2;
+  }
+
+  .value {
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 10px 10px 10px 0;
+    background: #fff;
+  }
+}

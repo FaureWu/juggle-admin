@@ -1,6 +1,6 @@
 import Home from './home';
 import Product from './product';
-import New from './new';
+import Article from './article';
 import Database from './database';
 import Config from './config';
 import Login from './login';
@@ -46,11 +46,11 @@ export const mainRoutes = [
     component: Product,
   },
   {
-    key: 'new',
-    path: '/new',
+    key: 'article',
+    path: '/article',
     icon: 'global',
-    title: '新闻',
-    component: New,
+    title: '文章',
+    component: Article,
   },
   {
     key: 'database',
@@ -63,7 +63,7 @@ export const mainRoutes = [
     key: 'config',
     path: '/config',
     icon: 'setting',
-    title: '基本信息',
+    title: '配置',
     component: Config,
   },
 ];
