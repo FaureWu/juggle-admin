@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>React App</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      var arr = [9, 0, 1, 4, 5, 2, 3, 8, 6, 7];
+
+      function maoPaoSort(source, fn) {
+        var dist = source.slice(0);
+
+        for (var i = dist.length - 1; i > 0; i--) {
+          for (var j = 0; j < i; j++) {
+            if (fn(dist[j], dist[j + 1]) > 0) {
+              var swap = dist[j];
+              dist[j] = dist[j + 1];
+              dist[j + 1] = swap;
+            }
+          }
+        }
+
+        return dist;
+      }
+
+      console.log('mao pao desc', maoPaoSort(arr, function(one, two) {
+        return one - two;
+      }).join(','));
+      console.log('mao pao asc', maoPaoSort(arr, function(one, two) {
+        return two - one;
+      }).join(','));
+
+      function quickSort(source, fn) {
+        if (source.length <= 1) {
+          return source;
+        }
+
+        var left = [];
+        var right = [];
+        var middleIndex = Math.floor(source.length / 2);
+        var middle = source.slice(middleIndex, 1)[0];
+
+        for (var i = 0; i < source.length; i++) {
+          if (fn(source[i], middle) >= 0) {
+            right.push(source[i]);
+          } else {
+            left.push(source[i]);
+          }
+        }
+
+        return quickSort(left, fn).concat([middle], quickSort(right, fn));
+      }
+
+      console.log('quick desc', quickSort(arr, function(item, middle) {
+        return item - middle;
+      }).join(','));
+      console.log('quick asc', quickSort(arr, function(item, middle) {
+        return middle - item;
+      }).join(','));
+    </script>
+  </body>
+</html>

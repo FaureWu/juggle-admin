@@ -116,6 +116,7 @@ module.exports = env => ({
     host: HOST,
     port: PORT,
     hot: true,
+    hotOnly: true,
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: PROTOCOL === 'https',
     // When use the hot mode, suggest use the inline mode
